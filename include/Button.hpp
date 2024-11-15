@@ -5,7 +5,7 @@
 class Button : public Widget {
   Rect shape;
   ColorRGBA color_background;
-  bool mouse_down, pressing;
+  bool mouse_down, pressing, clicked;
   Coord2D mouse_pos;
 
 public:

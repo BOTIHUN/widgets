@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(widgets)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS True)
 # Find SDL2
 find_package(SDL2 REQUIRED)
 
