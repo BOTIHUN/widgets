@@ -12,7 +12,7 @@ Button::Button(SDL_Renderer *renderer, Callback ClickedCallback,
   shape = {{100, 100}, 250, 100};
   color_background = DefaultColorBackground;
 }
-void Button::Handle(const SDL_Event &event) {
+void Button::Handle([[maybe_unused]] const SDL_Event &event) {
   if (!mouse_down || pressing)
     SDL_GetMouseState(&mouse_pos.x, &mouse_pos.y);
 }
