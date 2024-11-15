@@ -1,6 +1,8 @@
 #include "Button.hpp"
 #include <SDL2/SDL.h>
 #include <iostream>
+
+void PrintClicked(Button *button) { std::cout << "clicked" << std::endl; }
 int main() {
   // Initialize SDL
   if (SDL_Init(SDL_INIT_VIDEO) != 0) {
@@ -32,7 +34,7 @@ int main() {
   // Event handler
   SDL_Event event;
 
-  Widget *button = new Button(renderer);
+  Widget *button = new Button(renderer, &PrintClicked);
   // Main loop
   while (running) {
     // Handle events while
