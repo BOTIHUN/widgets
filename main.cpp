@@ -1,5 +1,6 @@
 #include "Button.hpp"
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 #include <iostream>
 
 void PrintClicked(Button *button) { std::cout << "clicked" << std::endl; }
@@ -9,7 +10,12 @@ int main() {
     std::cerr << "SDL_Init Error: " << SDL_GetError() << std::endl;
     return 1;
   }
-
+  // Initialize SDL_ttf
+  if (TTF_Init() == -1) {
+    std::cerr << "TTF_Init Error: " << TTF_GetError() << std::endl;
+    SDL_Quit();
+    return 1;
+  }
   // Create a window
   SDL_Window *window =
       SDL_CreateWindow("SDL2 Example", SDL_WINDOWPOS_CENTERED,

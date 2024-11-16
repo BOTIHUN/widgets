@@ -4,6 +4,7 @@ project(widgets)
 set(CMAKE_EXPORT_COMPILE_COMMANDS True)
 # Find SDL2
 find_package(SDL2 REQUIRED)
+find_package(SDL2_ttf REQUIRED)
 
 add_library(widgets SHARED
 src/Button.cpp
@@ -15,6 +16,6 @@ target_include_directories(widgets PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 # Add executable
 add_executable(widgets-test main.cpp)
 
-target_include_directories(widgets-test PRIVATE ${SDL2_INCLUDE_DIRS})
+target_include_directories(widgets-test PRIVATE ${SDL2_INCLUDE_DIRS} ${SDL2_ttf_INCLUDE_DIRS})
 # Link SDL2
-target_link_libraries(widgets-test ${SDL2_LIBRARIES} widgets)
+target_link_libraries(widgets-test ${SDL2_LIBRARIES} SDL2_ttf widgets)
