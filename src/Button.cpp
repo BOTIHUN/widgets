@@ -9,7 +9,6 @@ Button::Button(SDL_Renderer *renderer, Callback ClickedCallback,
       ClickedCallback(ClickedCallback), NotClickedCallback(NotClickedCallback),
       PressingCallback(PressingCallback),
       NotPressingCallback(NotPressingCallback) {
-  shape = {{100, 100}, 250, 100};
   color_background = DefaultColorBackground;
 }
 void Button::Handle([[maybe_unused]] const SDL_Event &event) {
@@ -18,6 +17,7 @@ void Button::Handle([[maybe_unused]] const SDL_Event &event) {
 }
 void Button::Update() {
   mouse_down = LeftMouseDown();
+  Rect shape = GetShape();
   if (!mouse_down && pressing &&
       PointInRect(mouse_pos.x, mouse_pos.y, shape.pos.x, shape.pos.y, shape.w,
                   shape.h))
@@ -37,6 +37,7 @@ void Button::Update() {
     NotClickedCallback(this);
 }
 void Button::Show() {
+  Rect shape = GetShape();
   SDL_SetRenderDrawColor(GetRenderer(), color_background.r, color_background.g,
                          color_background.b, color_background.a);
   SDL_Rect temp{shape.pos.x, shape.pos.y, shape.w, shape.h};

@@ -3,7 +3,6 @@
 #include "Math.hpp"
 #include "Widget.hpp"
 class Button : public Widget {
-  Rect shape;
   static constexpr ColorRGBA DefaultColorBackground{150, 150, 150, 255},
       DefaultColorBackgroundFaded{100, 100, 100, 255};
   ColorRGBA color_background;

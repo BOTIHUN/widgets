@@ -1,4 +1,7 @@
 #include "Widget.hpp"
 
-Widget::Widget(SDL_Renderer *renderer) : renderer(renderer) {}
+Widget::Widget(SDL_Renderer *renderer)
+    : renderer(renderer), shape(DefaultShape) {}
 SDL_Renderer *Widget::GetRenderer() { return renderer; }
+Rect Widget::GetShape() const { return shape; }
+void Widget::SetShape(const Rect &s) { shape = s; }
