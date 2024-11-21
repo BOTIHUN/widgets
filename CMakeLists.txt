@@ -10,7 +10,8 @@ add_library(widgets SHARED
 src/Button.cpp
 src/Widget.cpp
 src/Math.cpp
-src/SDLSupport.cpp)
+src/SDLSupport.cpp
+src/Label.cpp)
 
 target_include_directories(widgets PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 # Add executable

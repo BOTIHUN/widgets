@@ -41,6 +41,8 @@ int main() {
   SDL_Event event;
 
   Widget *button = new Button(renderer, &PrintClicked);
+  std::string text = "Hello";
+  Widget *label = new Label(renderer, text);
   // Main loop
   while (running) {
     // Handle events while
@@ -57,6 +59,7 @@ int main() {
     // Clear the screen
     SDL_RenderClear(renderer);
     button->Show();
+    label->Show();
     // Present the renderer (update the screen)
     SDL_RenderPresent(renderer);
   }
