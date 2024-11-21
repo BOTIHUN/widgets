@@ -19,3 +19,17 @@ add_executable(widgets-test main.cpp)
 target_include_directories(widgets-test PRIVATE ${SDL2_INCLUDE_DIRS} ${SDL2_ttf_INCLUDE_DIRS})
 # Link SDL2
 target_link_libraries(widgets-test ${SDL2_LIBRARIES} SDL2_ttf widgets)
+
+# Specify the source folder containing the resources
+set(RES_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/res")
+
+# Specify the destination folder in the build directory
+set(RES_DESTINATION "${CMAKE_BINARY_DIR}/res")
+
+# Add a custom command to copy the folder
+add_custom_command(
+    TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+            ${RES_FOLDER} ${RES_DESTINATION}
+    COMMENT "Copying resources folder to build directory"
+)

@@ -1,6 +1,6 @@
 #include "Button.hpp"
+#include "Label.hpp"
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
 #include <iostream>
 
 void PrintClicked(Button *button) { std::cout << "clicked" << std::endl; }
