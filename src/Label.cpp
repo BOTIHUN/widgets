@@ -5,13 +5,18 @@
 Label::Label(SDL_Renderer *renderer, const std::string &text)
     : Widget(renderer) {
   font = TTF_OpenFont(DEFAULT_FONT_PATH, DEFAULT_FONT_SIZE);
-  surface = TTF_RenderText_Solid(font, text.c_str(), {255, 255, 255, 255});
+  surface = TTF_RenderText_Solid(
+      font, text.c_str(),
+      {DEFAULT_COLOR.r, DEFAULT_COLOR.g, DEFAULT_COLOR.b, DEFAULT_COLOR.a});
   texture = SDL_CreateTextureFromSurface(GetRenderer(), surface);
 }
 void Label::Handle(const SDL_Event &) {}
-void Label::Update() {}
+void Label::Update() {
+  SetShape({{GetShape().pos.x, GetShape().pos.y}, surface->w, surface->h});
+}
 void Label::Show() {
-  SDL_Rect dest = {0, 0, surface->w, surface->h};
+  SDL_Rect dest = {GetShape().pos.x, GetShape().pos.y, GetShape().w,
+                   GetShape().h};
   SDL_RenderCopy(GetRenderer(), texture, nullptr, &dest);
 }
 Label::~Label() {

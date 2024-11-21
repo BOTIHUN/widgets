@@ -12,6 +12,7 @@ struct ColorRGBA {
 struct Rect {
   Coord2D pos;
   int w{0}, h{0};
+  void SetPos(int x, int y);
 };
 
 #endif

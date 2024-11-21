@@ -41,8 +41,8 @@ int main() {
   SDL_Event event;
 
   Widget *button = new Button(renderer, &PrintClicked);
-  std::string text = "Hello";
-  Widget *label = new Label(renderer, text);
+  Widget *label = new Label(renderer, "Hello World!");
+  label->GetShape().SetPos(120, 120);
   // Main loop
   while (running) {
     // Handle events while
@@ -53,6 +53,7 @@ int main() {
       button->Handle(event);
     }
     button->Update();
+    label->Update();
     // Set the drawing color (red, green, blue, alpha)
     SDL_SetRenderDrawColor(renderer, 0, 128, 255, 255);
 
