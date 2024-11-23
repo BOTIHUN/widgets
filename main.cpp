@@ -42,7 +42,7 @@ int main() {
 
   Widget *button = new Button(renderer, &PrintClicked);
   Widget *label = new Label(renderer, "Hello World!");
-  label->GetShape().SetPos(120, 120);
+  label->SetShape({120, 120, label->GetShape().w, label->GetShape().h});
   // Main loop
   while (running) {
     // Handle events while
@@ -51,6 +51,7 @@ int main() {
         running = false;
       }
       button->Handle(event);
+      label->Handle(event);
     }
     button->Update();
     label->Update();

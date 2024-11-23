@@ -13,7 +13,7 @@ protected:
 
 public:
   Widget(SDL_Renderer *);
-  virtual void Handle(const SDL_Event &) = 0;
+  virtual void Handle([[maybe_unused]] const SDL_Event &) = 0;
   virtual void Update() = 0;
   virtual void Show() = 0;
   virtual ~Widget() = default;
