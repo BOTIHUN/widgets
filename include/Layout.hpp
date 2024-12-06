@@ -14,6 +14,10 @@ class Layout {
 
 public:
   Layout(SDL_Renderer *renderer);
+  void HandleWidgets(const SDL_Event &event);
+  virtual void Organize() = 0;
+  void UpdateWidgets();
+  void ShowWidgets();
   virtual ~Layout() = default;
 };
 #endif
