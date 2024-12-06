@@ -11,7 +11,8 @@ src/Button.cpp
 src/Widget.cpp
 src/Math.cpp
 src/SDLSupport.cpp
-src/Label.cpp)
+src/Label.cpp
+src/Layout.cpp)
 
 target_include_directories(widgets PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 # Add executable
